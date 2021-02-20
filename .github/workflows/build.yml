@@ -17,10 +17,25 @@ jobs:
       with:
         python-version: '3.9'
         architecture: 'x64'
-    - name: Install dep and build
+    - name: Install dep
       shell: bash
       run: |
-        brew install sip pyqt5 ffmpeg
+        brew install sip pyqt5 ffmpeg libiodbc
         python3 -m pip install -r requirements.txt
+    - name: Install node pkg
+      shell: bash
+      run: |
+        cd nodejs
+        npm ci
+        cd ..
+    - name: Build
+      shell: bash
+      run: |
         python3 setup.py install
         make deploy
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: dist
+        retention-days: 3

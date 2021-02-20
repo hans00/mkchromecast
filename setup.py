@@ -54,7 +54,7 @@ LINUX_CLASSIFIERS = [
 
 APP = ["start_tray.py"]
 APP_NAME = "Mkchromecast"
-DATA_FILES = ["bin/audiodevice", "bin/mkchromecast", "nodejs", "notifier"]
+DATA_FILES = ["bin/audiodevice", "bin/mkchromecast", "nodejs/*", "notifier"]
 DATA_FILES.extend(glob("images/google*.icns"))
 
 OPTIONS = {
