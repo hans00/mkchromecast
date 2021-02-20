@@ -1,0 +1,25 @@
+name: build
+
+on: push
+
+jobs:
+  build_arm:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 12.x
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        architecture: 'x64'
+    - name: Install dep
+      shell: bash
+      run: |
+        brew install sip pyqt5 ffmpeg sox
+        pip3 install -r requirements.txt
+        make deploy
