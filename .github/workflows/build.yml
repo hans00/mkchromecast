@@ -20,7 +20,7 @@ jobs:
     - name: Install dep
       shell: bash
       run: |
-        brew install sip pyqt5
+        brew install sip pyqt5 ffmpeg
         python3 -m pip install -r requirements.txt
     - name: Install node pkg
       shell: bash
