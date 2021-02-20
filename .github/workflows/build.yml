@@ -3,7 +3,7 @@ name: build
 on: push
 
 jobs:
-  build_arm:
+  build_mac:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
